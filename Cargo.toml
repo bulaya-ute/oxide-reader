@@ -1,0 +1,20 @@
+[package]
+name = "oxide-reader"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "oxide-reader"
+path = "src/main.rs"
+
+[dependencies]
+eframe  = { version = "0.27", default-features = false, features = ["default_fonts", "glow", "accesskit"] }
+egui    = "0.27"
+pdfium-render = { version = "0.8", features = ["image"] }
+rfd     = "0.14"
+
+[profile.release]
+opt-level   = 3
+lto         = true
+codegen-units = 1
+strip       = true
